@@ -1,0 +1,24 @@
+- name: Check if file is connected to main.yml
+  debug:
+    msg: "Hello, this is Centos 7!"
+
+- name: Install httpd for Centos 7 (redhat)
+  yum:
+    name: httpd
+    state: latest
+
+- name: Install unzip for Centos 7 (redhat)
+  yum:
+    name: unzip
+    state: latest
+
+- name: Check if httpd is running
+  service:
+    name: httpd
+    state: started
+
+- name: Download and unarchive into /var/www/html
+  ansible.builtin.unarchive:
+    src: https://www.free-css.com/assets/files/free-css-templates/download/page251/flame.zip
+    dest: /var/www/html
+    remote_src: yes

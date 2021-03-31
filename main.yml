@@ -1,0 +1,7 @@
+- hosts: web
+  tasks:
+  - name: Tasks for Centos 7 (redhat)
+    include_tasks: "{{ ansible_os_family }}.yml"
+    
+  - name: Tasks for Ubuntu (debian)
+    include_tasks: "{{ ansible_os_family }}.yml"
